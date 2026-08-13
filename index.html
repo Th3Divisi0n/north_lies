@@ -44,41 +44,32 @@
 </style>
 </head>
 <body>
-
 <div class="text">There is two stars. not one.
 The one that crashes people is the north star.
 the star that is alive- the star is that Astraeus, that is.. south.
-
 Skylark_09 looked south.
-
 North Lies.
 North_LIES</div>
-
 <hr>
-
-<div class="timer-label">TIME REMAINING (August 13th, 5PM EST)</div>
+<div class="timer-label">TIME REMAINING (August 13th, 6PM EST)</div>
 <div class="timer" id="countdown">--:--:--:--</div>
-
 <div class="credit">by Mojang</div>
-
 <script>
   var target = new Date("August 13, 2026 17:00:00 EST").getTime();
-
+  var redirectURL = "https://missing-rosy.vercel.app";
   var interval = setInterval(function() {
     var now = new Date().getTime();
     var distance = target - now;
-
     if (distance < 0) {
       clearInterval(interval);
       document.getElementById("countdown").innerHTML = "00:00:00:00";
+      window.location.href = redirectURL;
       return;
     }
-
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
     document.getElementById("countdown").innerHTML =
       String(days).padStart(2, '0') + ":" +
       String(hours).padStart(2, '0') + ":" +
@@ -86,6 +77,5 @@ North_LIES</div>
       String(seconds).padStart(2, '0');
   }, 1000);
 </script>
-
 </body>
 </html>
